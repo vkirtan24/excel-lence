@@ -1,0 +1,1 @@
+I use Anaconda Navigator to make sure the supplied Python code runs smoothly in the Jupyter Notebook IDE. For best compatibility and performance, users should take the same course of action. You can handle environments and dependencies with ease by using Anaconda Navigator, which makes using the script hassle-free.
