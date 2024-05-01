@@ -58,7 +58,7 @@ def extract_variant_metrics(vcf_file):
 
     return variant_metrics
 
-directory = 'E:/VCFs/'
+directory = '' # Add the Directory path where you saved the multiple VCF files
 vcf_dir = [os.path.join(directory, f) for f in os.listdir(directory) if f.endswith('.vcf')]
 
 x_labels = list()
