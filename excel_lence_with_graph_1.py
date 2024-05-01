@@ -20,7 +20,7 @@ def extract_variant_metrics(vcf_file):
 
     with open(vcf_file, 'r') as file:
         for line in file:
-            if line.startswith('#'):  # Skip header lines
+            if line.startswith('#'):  
                 continue
 
             fields = line.strip().split('\t')
