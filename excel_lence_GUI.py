@@ -80,7 +80,6 @@ def execute_script():
         output_excel_path = os.path.join(directory, 'var.xlsx')
         pd.DataFrame(all_metrics).to_excel(output_excel_path, index=False)
 
-        # Graphical representation
         x_labels = list()
         data = list()
         colors = ['blue', 'green', 'red', 'cyan', 'magenta', 'yellow', 'black', 'purple', 'orange', 'brown', 'pink']
@@ -88,11 +87,10 @@ def execute_script():
         for vcf_file, color in zip(all_metrics, colors):
             sample_name = vcf_file['Sample Name']
             x_labels.extend([f"{sample_name}_{variant_type}" for variant_type in vcf_file.keys() if variant_type != 'Sample Name'])
-            data.extend(list(vcf_file.values())[1:])  # Exclude 'Sample Name'
-
+            data.extend(list(vcf_file.values())[1:])  
         x_positions = np.arange(len(x_labels))
 
-        plt.figure(figsize=(18, 9))  # Increased figure size for better visibility
+        plt.figure(figsize=(18, 9)) 
 
         plt.bar(x_positions, data, alpha=0.5, color=colors)
 
@@ -104,25 +102,22 @@ def execute_script():
         plt.title('Number of each Variants for given Samples')
         plt.xticks(x_positions, x_labels, rotation=90)
 
-        plt.tight_layout()  # Adjust layout to prevent cutting off the axis labels
+        plt.tight_layout()  
         plt.savefig(os.path.join(directory, 'var_plot.png'))
         plt.show()
 
         messagebox.showinfo("Success", f"Variant metrics calculated and saved as '{output_excel_path}'.")
 
-# Create GUI
 root = Tk()
 root.title("Excel-lence")
 
-# Load and display the image
-image = PhotoImage(file="excel-lence.png")  # Replace "excel-lence.png" with your image path
-resized_image = image.subsample(2, 2)  # Adjust the subsampling factor as needed
+image = PhotoImage(file="excel-lence.png")  
+resized_image = image.subsample(2, 2)  
 image_label = Label(root, image=resized_image)
 image_label.pack()
 
-# Create a button to ask for directory selection
 select_directory_button = Button(root, text="Select Directory", command=browse_files)
 select_directory_button.pack(pady=10)
 
-root.geometry("850x700")  # Adjusted GUI size to accommodate the image
+root.geometry("850x700") 
 root.mainloop()
