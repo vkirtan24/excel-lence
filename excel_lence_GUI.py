@@ -111,10 +111,12 @@ def execute_script():
 root = Tk()
 root.title("Excel-lence")
 
+'''
 image = PhotoImage(file="excel-lence.png")  
 resized_image = image.subsample(2, 2)  
 image_label = Label(root, image=resized_image)
 image_label.pack()
+'''
 
 select_directory_button = Button(root, text="Select Directory", command=browse_files)
 select_directory_button.pack(pady=10)
